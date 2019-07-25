@@ -3,5 +3,9 @@ ul{
 }
 
 h1{
-    background-color: plum;
+    color: rgb(58, 10, 58);
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
 }
+

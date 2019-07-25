@@ -1,7 +1,28 @@
 {% extends 'shared/layout.html' %}
 
 {% block conteudo %}
+{{msg}}
+    <h1>Ideias Malucas</h1>
 
-    <h1>Inicial</h1>
+    <form action="/" method="post">
+        <label>Nome:</label>
+        <input type="text" name="nome" required>
+
+        <label>Sobrenome:</label>
+        <input type="text" name="sobrenome" required>
+
+        <label>E-mail:</label>
+        <input type="text" name="email" required>
+        <label>Genero:</label>
+        <select name="genero">
+            <option value="F">Feminino</option>
+            <option value="M">Masculino</option>
+            <option value="O">Outros</option>
+        </select>
+        <label>Biografia</label>
+        <textarea name="biografia" id="" cols="30" rows="10"></textarea>
+
+        <input type="submit" value="Cadastrar">
+    </form>
 
 {% endblock %}
