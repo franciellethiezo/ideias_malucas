@@ -1,26 +1,24 @@
 from django.shortcuts import render
-from ideias import Pessoa
+from ideias.models import Pessoa
 
 # Create your views here.
 
 def index(request):
-    context = {
-    if request.method == 'post':
+    context = {}
+    if request.method == 'POST':
         pessoa = Pessoa()
-        pessoa.nome = request.post.get('nome')
-        pessoa.sobrenome = request.post.get('sobrenome')
-        pessoa.email = request.post.get('email')
-        pessoa.genero = request.post.get('genero')
-        pessoa.biografia = request.post.get('biografia')
+        pessoa.nome = request.POST.get('nome')
+        pessoa.sobrenome = request.POST.get('sobrenome')
+        pessoa.email = request.POST.get('email')
+        pessoa.genero = request.POST.get('genero')
+        pessoa.biografia = request.POST.get('biografia')
         pessoa.save()
-        context = {'msg', 'Parabéns :)'}
-    }
+        context = {'msg' : 'Parabéns :)'}
     return render(request, 'index.html', context)
 
 def sobre(request):
-    pessoa = Pessoa.objects
-    context = {
-
+    pessoa = Pessoa.objects.filter(ativo=True).all()
+    context = {'pessoas' :pessoa
     }
     return render(request, 'sobre.html', context)
 
